@@ -211,3 +211,7 @@ class BotBot(pydle.Client):
             msg += " [...]"
 
         super().message(channel, msg)
+
+    def on_invite(self, channel, inviter):
+        if inviter not in self.ignored_users:
+            self.join(channel)
