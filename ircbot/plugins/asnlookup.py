@@ -20,4 +20,4 @@ def command(bot, channel, sender, args):
 
     owner = get_asn_owner(args[0])
 
-    bot.message(channel, "The owner of AS{} is {}".format(args[0], owner))
+    bot.message(channel, "{}: The owner of AS{} is {}".format(sender, args[0], owner))
