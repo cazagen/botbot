@@ -17,8 +17,9 @@ get_path = partial(os.path.join, here)
 
 plugin_base = PluginBase(package='ircbot.plugins')
 
+BotbotClient = pydle.featurize(pydle.Client, pydle.features.AccountSupport)
 
-class BotBot(pydle.Client):
+class BotBot(BotbotClient):
     def __init__(self, fallback_nicknames=[], username=None, realname=None, **kwargs):
         super(BotBot, self).__init__("botbot-defaultnickname",
                                      fallback_nicknames=fallback_nicknames,
