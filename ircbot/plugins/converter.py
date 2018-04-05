@@ -2,7 +2,6 @@ import pint
 
 from ircbot import bot
 
-
 @bot.command('convert')
 def convert(bot, channel, sender, args):
     """ Converts units from one measurement to another. ie: {bot.trigger}convert 100 cm inches """
@@ -10,8 +9,10 @@ def convert(bot, channel, sender, args):
     unit_from = args[1]
     unit_to = args[2]
 
+    ureg = pint.UnitRegistry()
+    ureg.load_definitions('/home/cazagen/Codenstuff/botbot/ircbot/plugins/definitions.txt')
+# Add ability to put definitions location on config
     try:
-        ureg = pint.UnitRegistry()
         unit = ureg.Quantity(amount, unit_from)
 
         to = unit.to(unit_to)
