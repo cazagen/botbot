@@ -10,7 +10,7 @@ def host(bot, channel, sender, args):
     """Query DNS for a hostname. Usage: {bot.trigger}host [MX] example.com"""
     if len(args) == 1:
         target = args[0]
-        query_types = ["A", "AAAA"]
+        query_types = ["A", "AAAA", "CNAME"]
 
         try:
             ipaddress.ip_address(target)
@@ -26,6 +26,13 @@ def host(bot, channel, sender, args):
         try:
             query_response = dns.resolver.query(target, query_type)
             truncated = False
+            print()
+            print()
+            print()
+            print(query_response)
+            print()
+            print()
+            print()
 
             if channel != sender and len(query_response) > 4:
                 query_response = query_response[:4]
