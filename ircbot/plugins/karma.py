@@ -14,7 +14,7 @@ def karma_command(bot, channel, sender, args):
     try:
         amount = int(redis.hget(bot.config['System']['redis_prefix'] + "karma", term))
     except TypeError:
-        amount = "no"
+        amount =from redis import StrictRedis
     bot.message(channel, "{} has {} karma".format(term, amount))
 
 
