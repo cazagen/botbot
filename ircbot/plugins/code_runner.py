@@ -36,7 +36,7 @@ def code(bot, channel, sender, args):
             bot.message(channel, "Don't be a butt")
             return
         
-        bot.message(channel, str(response.json()['stdout']))
+        bot.message(channel, str(response.json()['stdout'].strip()))
 
 @bot.command('listlanguages')
 def languageChecker(bot, channel, sender, args):
