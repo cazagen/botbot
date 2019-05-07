@@ -18,7 +18,6 @@ requests = "~=2.20.0"
 slacker = "~=0.9.0"
 tornado = "~=4.5.2"
 urbandictionary = "~=1.1"
-giphypop = "~=0.3"
 
 [dev-packages]
 "flake8" = "~=3.5.0"

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ffd62047723c55760c8db0092a9d0c655ff87481c7dc9f76f12afaa4787f0dbb"
+            "sha256": "7e8c248f410426ae9a710c408b5c3bcf27659dbc78b20753f22e032d97c406f2"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -55,13 +55,6 @@
             ],
             "index": "pypi",
             "version": "==5.2.1"
-        },
-        "giphypop": {
-            "hashes": [
-                "sha256:8dbdffa520be21dff4f7415913c024bca100458fbb19aea878942cff4ab903f1"
-            ],
-            "index": "pypi",
-            "version": "==0.3"
         },
         "idna": {
             "hashes": [
@@ -165,10 +158,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:61bf29cada3fc2fbefad4fdf059ea4bd1b4a86d2b6d15e1c7c0b582b9752fe39",
-                "sha256:de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+                "sha256:2393a695cd12afedd0dcb26fe5d50d0cf248e5a66f75dbd89a3d4eb333a61af4",
+                "sha256:a637e5fae88995b256e3409dc4d52c2e2e0ba32c42a6365fee8bbd2238de3cfb"
             ],
-            "version": "==1.24.1"
+            "version": "==1.24.3"
         }
     },
     "develop": {

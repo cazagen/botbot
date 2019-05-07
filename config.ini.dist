@@ -55,3 +55,6 @@ dsa_method = hash
 
 [Karma]
 re = (~d|~s|)
+
+[Giphy]
+api_key = 
