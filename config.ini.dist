@@ -58,3 +58,6 @@ re = (~d|~s|)
 
 [Giphy]
 api_key = 
+
+[GoogleMaps]
+key = 
