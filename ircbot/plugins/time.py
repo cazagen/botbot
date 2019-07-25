@@ -8,10 +8,11 @@ from ircbot import bot
 
 
 def geocode(_bot, _channel, sender, args):
-    geocode_endpoint = "http://maps.googleapis.com/maps/api/geocode/json"
+    geocode_endpoint = "https://maps.googleapis.com/maps/api/geocode/json"
     geocoder_args = {
         'sensor': 'false',
-        'address': args
+        'address': args,
+        'key': bot.config['GoogleMaps']['key']
     }
 
     geocode_uri = geocode_endpoint + "?" + urllib.parse.urlencode(geocoder_args)
@@ -36,7 +37,7 @@ def time(bot, channel, sender, args):
     time_endpoint = "http://api.timezonedb.com/"
 
     geocoded = geocode(bot, channel, sender, args)
-    if isinstance(geocoded) != dict:
+    if not isinstance(geocoded, dict):
         bot.message(channel, geocoded)
     latlng = geocoded[u'geometry'][u'location']
 
@@ -78,7 +79,7 @@ def weather(bot, channel, sender, args):
     weather_endpoint = "http://api.openweathermap.org/data/2.5/weather"
 
     geocoded = geocode(bot, channel, sender, args)
-    if isinstance(geocoded) != dict:
+    if not isinstance(geocoded, dict):
         bot.message(channel, geocoded)
     latlng = geocoded[u'geometry'][u'location']
 
@@ -94,6 +95,6 @@ def weather(bot, channel, sender, args):
 
     bot.message(channel, "{}: The current weather in {}: {} || {}°C || Wind: {} m/s || Clouds: {}% || Pressure: {} hpa".format(
         sender, geocoded[u'formatted_address'],
-        current_weather['current_weather'][0]['description'], current_weather['main']['temp'],
+        current_weather['weather'][0]['description'], current_weather['main']['temp'],
         current_weather['wind']['speed'], current_weather['clouds']['all'],
         current_weather['main']['pressure']))
