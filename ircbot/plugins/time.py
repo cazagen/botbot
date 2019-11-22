@@ -44,7 +44,9 @@ def time(bot, channel, sender, args):
     timezoner_args = {
         'sensor': 'false',
         'location': '{},{}'.format(str(latlng[u'lat']), str(latlng[u'lng'])),
-        'timestamp': pytime.time()
+        'timestamp': pytime.time(),
+        'key': bot.config['GoogleMaps']['key']
+
     }
 
     timezone_uri = f"{timezone_endpoint}?{urllib.parse.urlencode(timezoner_args)}"
