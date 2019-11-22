@@ -9,12 +9,12 @@ def transfer(bot, channel, sender, args):
     """"command to transfer karma & butts from one term to another, usage: {bot.trigger}transfer name1 name2"""
     if sender.lower() == bot.config['System']['owner']:
         if len(args) == 2:
-                first_name = args[0].lower()
-                second_name = args[1].lower()
+            first_name = args[0].lower()
+            second_name = args[1].lower()
         else:
             string = " ".join(args)
             strings = []
-            for term in re.findall("(?![\'\"])[a-z,\s]+(?=[\"\'])", string):
+            for term in re.findall("(?![\'\"])[a-z,\\s]+(?=[\"\'])", string):
                 strings.append(term.strip())
             try:
                 first_name = strings[0].lower()

@@ -43,4 +43,4 @@ def np(bot, channel, sender, args):
             bot.message(channel, "[LastFM] {fmt.BLUE}{}{fmt.RESET} is not currently scrobbling - "
                                  "They last listened to {fmt.GREEN}{t.title}{fmt.RESET} by {fmt.ORANGE}{t.artist}{fmt.RESET}".format(user.get_name(), fmt=Format, t=last_played.track))
     except pylast.WSError:
-            bot.message(channel, "[LastFM] I cannot find the user '{}'".format(user))
+        bot.message(channel, "[LastFM] I cannot find the user '{}'".format(user))

@@ -24,7 +24,7 @@ def ipcheck(bot, channel, sender, args):
             except dns.resolver.NXDOMAIN as ex:
                 bot.message(channel, "NXDOMAIN ({}): {}".format(qtype, str(ex)))
             except dns.resolver.NoAnswer as ex:
-                pass
+                bot.message(channel, "NOANSWER ({}): {}".format(qtype, str(ex)))
             if channel != sender and len(result) > 4:
                 result = result[:4]
                 truncated = True
