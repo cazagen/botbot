@@ -7,7 +7,7 @@ Botbot is developed in Python 3, so please ensure that is installed on your syst
 1. Optionally set up a virtualenv with 
     `virtualenv -p $(which python3) <your_env_name>`
 
-2. Install Requirements with `pip install -r requirements.txt`
+2. Install Requirements with `pipenv install`
 
 3. Create a configuration. Copy the distributable file from `config.ini.dist` to `config.ini` and edit as necessary.
 
