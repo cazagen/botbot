@@ -71,7 +71,7 @@ def time(bot, channel, sender, args):
 
     timenow = datetime.datetime.utcfromtimestamp(localtime[u'timestamp'])
 
-    bot.message(channel, "{}: It is currently {} in {} || Timezone: {} ({})".format(
+    bot.message(channel, "{}: It is currently {} in {} · Timezone: {} ({})".format(
         sender, timenow.strftime("%H:%M"), geocoded[u'formatted_address'], tz,
         timezone[u'timeZoneName']))
 
@@ -95,7 +95,7 @@ def weather(bot, channel, sender, args):
     response = requests.get(weather_endpoint, params=args)
     current_weather = response.json()
 
-    bot.message(channel, "{}: The current weather in {}: {} || {}°C || Wind: {} m/s || Clouds: {}% || Pressure: {} hpa".format(
+    bot.message(channel, "{}: The current weather in {}: {} · {}°C · Wind: {} m/s · Clouds: {}% · Pressure: {} hpa".format(
         sender, geocoded[u'formatted_address'],
         current_weather['weather'][0]['description'], current_weather['main']['temp'],
         current_weather['wind']['speed'], current_weather['clouds']['all'],
