@@ -72,6 +72,8 @@ def message_hook(bot, channel, sender, message):
         term = m.group('term')
         reason = m.group('reason')
         term = term.strip().lower()
+        if term.endswith("~d"):
+            term = term[:-2]
         if re.fullmatch("{}{}".format(term, bot.config['Karma']['re']), sender.lower()) is not None:
             bot.message(channel, "Haha, nope!")
             decrement(bot, term)
@@ -83,6 +85,8 @@ def message_hook(bot, channel, sender, message):
         term = m.group('term')
         reason = m.group('reason')
         term = term.strip().lower()
+        if term.endswith("~d"):
+            term = term[:-2]
         decrement(bot, term)
 
     if not reason:
