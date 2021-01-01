@@ -1,9 +1,16 @@
 import requests
 import requests.exceptions
-import rfc3987
+import re
 from bs4 import BeautifulSoup
 from ircbot import bot
 
+regex = re.compile(
+        r'^(?:http|ftp)s?://' # http:// or https://
+        r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' #domain...
+        r'localhost|' #localhost...
+        r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' # ...or ip
+        r'(?::\d+)?' # optional port
+        r'(?:/?|[/?]\S+)$', re.IGNORECASE)
 
 def allowed_to_process(bot, channel):
     mode = bot.config['Links']['mode']
@@ -38,7 +45,7 @@ def link_title_parse_hook(bot, channel, sender, message):
 
     for word in message.split(" "):
         try:
-            if rfc3987.match(word, rule='URI'):
+            if re.match(regex, word):
                 r = requests.get(word)
 
                 if r.status_code != 200:
