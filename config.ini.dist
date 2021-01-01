@@ -31,6 +31,7 @@ plugin_blacklist =
 mode = whitelist
 channels = #your #whitelisted #channels
 max_length = 120
+ignore = example.com
 
 [Slack]
 listen = 
