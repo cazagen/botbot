@@ -43,6 +43,9 @@ def truncate_title(title):
 def link_title_parse_hook(bot, channel, sender, message):
     if not allowed_to_process(bot, channel):
         return
+    elif message.startswith("[edit]"):
+        # Ignore edits for interpreting titles
+        return
 
     for word in message.split(" "):
         for ignore in bot.config['Links']['ignore'].split():
